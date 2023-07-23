@@ -72,7 +72,7 @@ void print_array(int ni, int nl,
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
-static
+__attribute__((noinline))
 void kernel_2mm(int ni, int nj, int nk, int nl,
 		DATA_TYPE alpha,
 		DATA_TYPE beta,

@@ -61,7 +61,7 @@ void print_array(int n,
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
-static
+__attribute__((noinline))
 void kernel_atax(int m, int n,
 		 DATA_TYPE POLYBENCH_2D(A,M,N,m,n),
 		 DATA_TYPE POLYBENCH_1D(x,N,n),

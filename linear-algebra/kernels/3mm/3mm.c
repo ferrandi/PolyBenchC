@@ -68,7 +68,7 @@ void print_array(int ni, int nl,
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
-static
+__attribute__((noinline))
 void kernel_3mm(int ni, int nj, int nk, int nl, int nm,
 		DATA_TYPE POLYBENCH_2D(E,NI,NJ,ni,nj),
 		DATA_TYPE POLYBENCH_2D(A,NI,NK,ni,nk),

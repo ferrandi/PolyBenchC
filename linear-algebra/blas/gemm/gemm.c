@@ -68,7 +68,7 @@ void print_array(int ni, int nj,
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
-static
+__attribute__((noinline))
 void kernel_gemm(int ni, int nj, int nk,
 		 DATA_TYPE alpha,
 		 DATA_TYPE beta,

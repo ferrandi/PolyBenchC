@@ -57,6 +57,7 @@
 #ifdef DATA_TYPE_IS_INT
 #  define DATA_TYPE int
 #  define DATA_PRINTF_MODIFIER "%d "
+#  define SCALAR_VAL(x) ((int)x)
 #endif
 
 #ifdef DATA_TYPE_IS_FLOAT
