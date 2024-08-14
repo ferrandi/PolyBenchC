@@ -61,7 +61,7 @@ void print_array(int nx,
   for (i = 0; i < nx; i++)
     for (j = 0; j < ny; j++) {
       if ((i * nx + j) % 20 == 0) fprintf(POLYBENCH_DUMP_TARGET, "\n");
-      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, ex[i][j]);
+      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST ex[i][j]);
     }
   POLYBENCH_DUMP_END("ex");
   POLYBENCH_DUMP_FINISH;
@@ -70,7 +70,7 @@ void print_array(int nx,
   for (i = 0; i < nx; i++)
     for (j = 0; j < ny; j++) {
       if ((i * nx + j) % 20 == 0) fprintf(POLYBENCH_DUMP_TARGET, "\n");
-      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, ey[i][j]);
+      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST ey[i][j]);
     }
   POLYBENCH_DUMP_END("ey");
 
@@ -78,7 +78,7 @@ void print_array(int nx,
   for (i = 0; i < nx; i++)
     for (j = 0; j < ny; j++) {
       if ((i * nx + j) % 20 == 0) fprintf(POLYBENCH_DUMP_TARGET, "\n");
-      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, hz[i][j]);
+      fprintf(POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST hz[i][j]);
     }
   POLYBENCH_DUMP_END("hz");
 }

@@ -41,7 +41,7 @@ void print_array(int n, DATA_TYPE POLYBENCH_2D(C,N,N,n,n))
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++) {
-	fprintf (stderr, DATA_PRINTF_MODIFIER, C[i][j]);
+	fprintf (stderr, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST C[i][j]);
 	if (i % 20 == 0) fprintf (stderr, "\n");
     }
   fprintf (stderr, "\n");

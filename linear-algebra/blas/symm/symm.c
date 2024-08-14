@@ -61,7 +61,7 @@ void print_array(int m, int n,
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) {
 	if ((i * m + j) % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, C[i][j]);
+	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST C[i][j]);
     }
   POLYBENCH_DUMP_END("C");
   POLYBENCH_DUMP_FINISH;

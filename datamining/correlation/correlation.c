@@ -53,7 +53,7 @@ void print_array(int m,
   for (i = 0; i < m; i++)
     for (j = 0; j < m; j++) {
       if ((i * m + j) % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-      fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, corr[i][j]);
+      fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST corr[i][j]);
     }
   POLYBENCH_DUMP_END("corr");
   POLYBENCH_DUMP_FINISH;

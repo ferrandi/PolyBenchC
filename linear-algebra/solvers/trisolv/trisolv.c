@@ -52,7 +52,7 @@ void print_array(int n,
   POLYBENCH_DUMP_START;
   POLYBENCH_DUMP_BEGIN("x");
   for (i = 0; i < n; i++) {
-    fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, x[i]);
+    fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST x[i]);
     if (i % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
   }
   POLYBENCH_DUMP_END("x");

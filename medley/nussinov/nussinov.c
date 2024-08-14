@@ -60,7 +60,7 @@ void print_array(int n,
   for (i = 0; i < n; i++) {
     for (j = i; j < n; j++) {
       if (t % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-      fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, table[i][j]);
+      fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST table[i][j]);
       t++;
     }
   }

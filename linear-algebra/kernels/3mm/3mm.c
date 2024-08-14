@@ -59,7 +59,7 @@ void print_array(int ni, int nl,
   for (i = 0; i < ni; i++)
     for (j = 0; j < nl; j++) {
 	if ((i * ni + j) % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, G[i][j]);
+	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST G[i][j]);
     }
   POLYBENCH_DUMP_END("G");
   POLYBENCH_DUMP_FINISH;

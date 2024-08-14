@@ -56,7 +56,7 @@ void print_array(int m, int n,
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++) {
 	if ((i*n+j) % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, R[i][j]);
+	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST R[i][j]);
     }
   POLYBENCH_DUMP_END("R");
 
@@ -64,7 +64,7 @@ void print_array(int m, int n,
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) {
 	if ((i*n+j) % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
-	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, Q[i][j]);
+	fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, DATA_PRINTF_CAST Q[i][j]);
     }
   POLYBENCH_DUMP_END("Q");
   POLYBENCH_DUMP_FINISH;
