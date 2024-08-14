@@ -108,7 +108,7 @@ $paramDefs
 $loopBoundDef
 
 /* Default data type */
-# if !defined(DATA_TYPE_IS_INT) && !defined(DATA_TYPE_IS_FLOAT) && !defined(DATA_TYPE_IS_DOUBLE) && !defined(DATA_TYPE_IS_USER_DEFINED)
+# if !defined(DATA_TYPE_IS_INT) && !defined(DATA_TYPE_IS_FLOAT) && !defined(DATA_TYPE_IS_DOUBLE) && !defined(DATA_TYPE)
 #  define DATA_TYPE_IS_$datatypeUC
 # endif
 
@@ -137,6 +137,10 @@ $loopBoundDef
 #  define EXP_FUN(x) exp(x)
 #  define POW_FUN(x,y) pow(x,y)
 # endif
+
+#ifndef DATA_PRINTF_MODIFIER
+#  define DATA_PRINTF_MODIFIER "%0.2f "
+#endif
 
 #endif /* !$headerDef */
 
