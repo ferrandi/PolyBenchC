@@ -64,9 +64,43 @@ EXTRA_FLAGS=$extra_flags{$kernel}
 $kernel: $kernel.c tb_$kernel.c $kernel.h
 	\${VERBOSE} \${CC} -o $kernel $kernel.c \${CFLAGS} -I. -I$utilityDir $utilityDir/polybench.c \${EXTRA_FLAGS}
 
+hls: $kernel.c tb_$kernel.c $kernel.h
+	\${VERBOSE} vitis_hls hls.tcl
+
 clean:
 	@ rm -f $kernel
 
+EOF
+
+        close FILE;
+
+        my $hls_file = $target.'/'.$dir.'/hls.tcl';
+        my $prj_name = $kernel;
+        $prj_name =~ s/-/_/g;
+
+        open FILE, ">$hls_file" or die "failed to open $file.";
+        
+print FILE << "EOF";
+open_project ${prj_name}_syn
+
+source ${polybenchRoot}config.tcl
+set global_cflags "-I[pwd]/${polybenchRoot}utilities \$polybench_cflags"
+
+add_files $kernel.c -cflags "\$global_cflags"
+add_files -tb "tb_$kernel.c [pwd]/${polybenchRoot}utilities/polybench.c" -cflags "\$global_cflags"
+
+set_top kernel_${prj_name}
+
+open_solution -reset solution
+set_part {xc7vx690tffg1930-3}
+create_clock -period 10
+
+csim_design
+csynth_design
+cosim_design -rtl verilog
+export_design -flow impl -rtl verilog -format ip_catalog
+
+exit
 EOF
 
         close FILE;
@@ -81,7 +115,15 @@ open FILE, '>'.$TARGET_DIR.'/config.mk';
 
 print FILE << "EOF";
 CC=gcc
-CFLAGS=-O2 -DPOLYBENCH_DUMP_ARRAYS -DPOLYBENCH_USE_C99_PROTO
+CFLAGS=-O2 -std=gnu11 -DPOLYBENCH_DUMP_ARRAYS -DPOLYBENCH_USE_C99_PROTO -DPOLYBENCH_USE_RESTRICT
+EOF
+
+close FILE;
+
+open FILE, '>'.$TARGET_DIR.'/config.tcl';
+
+print FILE << "EOF";
+set polybench_cflags "-std=gnu11 -DMINI_DATASET -DPOLYBENCH_USE_RESTRICT"
 EOF
 
 close FILE;
