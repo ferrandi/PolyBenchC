@@ -90,4 +90,11 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_gemm(int ni, int nj, int nk,
+   DATA_TYPE alpha,
+   DATA_TYPE beta,
+   DATA_TYPE POLYBENCH_2D(C,NI,NJ,ni,nj),
+   DATA_TYPE POLYBENCH_2D(A,NI,NK,ni,nk),
+   DATA_TYPE POLYBENCH_2D(B,NK,NJ,nk,nj));
+
 #endif /* !_GEMM_H */

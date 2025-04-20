@@ -79,4 +79,8 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_durbin(int n,
+   DATA_TYPE POLYBENCH_1D(r,N,n),
+   DATA_TYPE POLYBENCH_1D(y,N,n));
+
 #endif /* !_DURBIN_H */

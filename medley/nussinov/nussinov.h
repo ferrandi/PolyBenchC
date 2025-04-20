@@ -78,4 +78,10 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+/* RNA bases represented as chars, range is [0,3] */
+typedef char base;
+
+void kernel_nussinov(int n, base POLYBENCH_1D(seq,N,n),
+			   DATA_TYPE POLYBENCH_2D(table,N,N,n,n));
+
 #endif /* !_NUSSINOV_H */

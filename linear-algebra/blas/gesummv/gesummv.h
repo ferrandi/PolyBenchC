@@ -79,4 +79,13 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_gesummv(int n,
+   DATA_TYPE alpha,
+   DATA_TYPE beta,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n),
+   DATA_TYPE POLYBENCH_2D(B,N,N,n,n),
+   DATA_TYPE POLYBENCH_1D(tmp,N,n),
+   DATA_TYPE POLYBENCH_1D(x,N,n),
+   DATA_TYPE POLYBENCH_1D(y,N,n));
+
 #endif /* !_GESUMMV_H */

@@ -84,4 +84,9 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_heat_3d(int tsteps,
+   int n,
+   DATA_TYPE POLYBENCH_3D(A,N,N,N,n,n,n),
+   DATA_TYPE POLYBENCH_3D(B,N,N,N,n,n,n));
+
 #endif /* !_HEAT_3D_H */

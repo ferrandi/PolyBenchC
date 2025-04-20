@@ -78,4 +78,7 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_cholesky(int n,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n));
+
 #endif /* !_CHOLESKY_H */

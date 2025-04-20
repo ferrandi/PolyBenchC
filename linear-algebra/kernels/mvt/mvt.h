@@ -78,4 +78,11 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_mvt(int n,
+   DATA_TYPE POLYBENCH_1D(x1,N,n),
+   DATA_TYPE POLYBENCH_1D(x2,N,n),
+   DATA_TYPE POLYBENCH_1D(y_1,N,n),
+   DATA_TYPE POLYBENCH_1D(y_2,N,n),
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n));
+
 #endif /* !_MVT_H */

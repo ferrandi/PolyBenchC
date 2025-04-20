@@ -84,4 +84,10 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_deriche(int w, int h, DATA_TYPE alpha,
+   DATA_TYPE POLYBENCH_2D(imgIn, W, H, w, h),
+   DATA_TYPE POLYBENCH_2D(imgOut, W, H, w, h),
+   DATA_TYPE POLYBENCH_2D(y1, W, H, w, h),
+   DATA_TYPE POLYBENCH_2D(y2, W, H, w, h));
+
 #endif /* !_DERICHE_H */

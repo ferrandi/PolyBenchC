@@ -84,4 +84,9 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_jacobi_2d(int tsteps,
+   int n,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n),
+   DATA_TYPE POLYBENCH_2D(B,N,N,n,n));
+
 #endif /* !_JACOBI_2D_H */

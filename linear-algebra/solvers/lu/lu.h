@@ -78,4 +78,7 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_lu(int n,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n));
+
 #endif /* !_LU_H */

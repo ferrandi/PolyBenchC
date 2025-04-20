@@ -61,7 +61,7 @@ include $configFile
 
 EXTRA_FLAGS=$extra_flags{$kernel}
 
-$kernel: $kernel.c $kernel.h
+$kernel: $kernel.c tb_$kernel.c $kernel.h
 	\${VERBOSE} \${CC} -o $kernel $kernel.c \${CFLAGS} -I. -I$utilityDir $utilityDir/polybench.c \${EXTRA_FLAGS}
 
 clean:

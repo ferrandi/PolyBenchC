@@ -85,4 +85,8 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_seidel_2d(int tsteps,
+   int n,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n));
+
 #endif /* !_SEIDEL_2D_H */

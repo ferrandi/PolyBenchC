@@ -84,4 +84,11 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_symm(int m, int n,
+   DATA_TYPE alpha,
+   DATA_TYPE beta,
+   DATA_TYPE POLYBENCH_2D(C,M,N,m,n),
+   DATA_TYPE POLYBENCH_2D(A,M,M,m,m),
+   DATA_TYPE POLYBENCH_2D(B,M,N,m,n));
+
 #endif /* !_SYMM_H */

@@ -90,4 +90,12 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_fdtd_2d(int tmax,
+   int nx,
+   int ny,
+   DATA_TYPE POLYBENCH_2D(ex,NX,NY,nx,ny),
+   DATA_TYPE POLYBENCH_2D(ey,NX,NY,nx,ny),
+   DATA_TYPE POLYBENCH_2D(hz,NX,NY,nx,ny),
+   DATA_TYPE POLYBENCH_1D(_fict_,TMAX,tmax));
+
 #endif /* !_FDTD_2D_H */

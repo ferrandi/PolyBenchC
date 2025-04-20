@@ -85,4 +85,10 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_atax(int m, int n,
+   DATA_TYPE POLYBENCH_2D(A,M,N,m,n),
+   DATA_TYPE POLYBENCH_1D(x,N,n),
+   DATA_TYPE POLYBENCH_1D(y,N,n),
+   DATA_TYPE POLYBENCH_1D(tmp,M,m));
+
 #endif /* !_ATAX_H */

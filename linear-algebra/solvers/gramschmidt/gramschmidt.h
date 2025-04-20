@@ -84,4 +84,9 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_gramschmidt(int m, int n,
+   DATA_TYPE POLYBENCH_2D(A,M,N,m,n),
+   DATA_TYPE POLYBENCH_2D(R,N,N,n,n),
+   DATA_TYPE POLYBENCH_2D(Q,M,N,m,n));
+
 #endif /* !_GRAMSCHMIDT_H */

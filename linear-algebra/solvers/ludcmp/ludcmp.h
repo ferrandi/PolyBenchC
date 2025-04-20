@@ -78,4 +78,10 @@
 #  define DATA_PRINTF_MODIFIER "%0.2f "
 #endif
 
+void kernel_ludcmp(int n,
+   DATA_TYPE POLYBENCH_2D(A,N,N,n,n),
+   DATA_TYPE POLYBENCH_1D(b,N,n),
+   DATA_TYPE POLYBENCH_1D(x,N,n),
+   DATA_TYPE POLYBENCH_1D(y,N,n));
+
 #endif /* !_LUDCMP_H */
