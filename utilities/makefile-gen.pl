@@ -61,11 +61,13 @@ include $configFile
 
 EXTRA_FLAGS=$extra_flags{$kernel}
 
+.PHONY: hls hls-int clean
+
 $kernel: $kernel.c tb_$kernel.c $kernel.h
 	\${VERBOSE} \${CC} -o $kernel $kernel.c \${CFLAGS} -I. -I$utilityDir $utilityDir/polybench.c \${EXTRA_FLAGS}
 
-hls: $kernel.c tb_$kernel.c $kernel.h
-	\${VERBOSE} vitis_hls hls.tcl
+hls hls-int: $kernel.c tb_$kernel.c $kernel.h
+	\${VERBOSE} MAKEFLAGS= vitis_hls hls.tcl
 
 clean:
 	@ rm -f $kernel
@@ -92,13 +94,21 @@ add_files -tb "tb_$kernel.c [pwd]/${polybenchRoot}utilities/polybench.c" -cflags
 set_top kernel_${prj_name}
 
 open_solution -reset solution
-set_part {xc7vx690tffg1930-3}
-create_clock -period 10
+set_part \$part_name
+create_clock -period \$period
 
-csim_design
-csynth_design
-cosim_design -rtl verilog
-export_design -flow impl -rtl verilog -format ip_catalog
+if {\$enable_csim} {
+   csim_design
+}
+if {\$enable_synth} {
+   csynth_design
+}
+if {\$enable_cosim} {
+   cosim_design -rtl verilog
+}
+if {\$enable_impl} {
+   export_design -flow impl -rtl verilog -format ip_catalog
+}
 
 exit
 EOF
@@ -123,6 +133,14 @@ close FILE;
 open FILE, '>'.$TARGET_DIR.'/config.tcl';
 
 print FILE << "EOF";
+set part_name xc7vx690tffg1930-3
+set period 10
+
+set enable_csim 0
+set enable_synth 1
+set enable_cosim 1
+set enable_impl 1
+
 set polybench_cflags "-std=gnu11 -DMINI_DATASET -DPOLYBENCH_USE_RESTRICT"
 EOF
 
