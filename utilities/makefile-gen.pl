@@ -146,5 +146,62 @@ EOF
 
 close FILE;
 
+open FILE, '>'.$TARGET_DIR.'/Makefile';
+
+print FILE << "EOF";
+BENCHMARKS_INT= \
+	datamining/covariance \
+	linear-algebra/blas/gemm \
+	linear-algebra/blas/gemver \
+	linear-algebra/blas/gesummv \
+	linear-algebra/blas/symm \
+	linear-algebra/blas/syr2k \
+	linear-algebra/blas/syrk \
+	linear-algebra/blas/trmm \
+	linear-algebra/kernels/2mm \
+	linear-algebra/kernels/3mm \
+	linear-algebra/kernels/atax \
+	linear-algebra/kernels/bicg \
+	linear-algebra/kernels/doitgen \
+	linear-algebra/kernels/mvt \
+	linear-algebra/solvers/durbin \
+	linear-algebra/solvers/lu \
+	linear-algebra/solvers/ludcmp \
+	linear-algebra/solvers/trisolv \
+	medley/floyd-warshall \
+	medley/nussinov \
+	stencils/jacobi-1d \
+	stencils/seidel-2d
+
+BENCHMARKS_FLOAT= \
+	medley/deriche \
+	datamining/correlation \
+	linear-algebra/solvers/gramschmidt \
+	linear-algebra/solvers/cholesky \
+	stencils/adi \
+	stencils/fdtd-2d \
+	stencils/heat-3d \
+	stencils/jacobi-2d
+
+BENCHMARKS=
+BENCHMARKS+= $(BENCHMARKS_FLOAT)
+BENCHMARKS+= $(BENCHMARKS_INT)
+
+.PHONY: hls hls-int $(BENCHMARKS)
+
+hls: $(BENCHMARKS)
+	\@echo "Running target '\$@' in all subdirectories completed."
+
+hls-int: $(BENCHMARKS_INT)
+	\@echo "Running target '\$@' in all subdirectories completed."
+
+
+$(BENCHMARKS):
+	\@echo "Entering directory '\$@' and running target '$(MAKECMDGOALS)'..."
+	$(MAKE) -C \$@ $(MAKECMDGOALS)
+EOF
+
+close FILE;
+
 }
 
